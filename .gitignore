@@ -1,0 +1,19 @@
+# Logs
+*.log
+access.log
+error.log
+
+# Captures réseau
+*.pcap
+*.pcapng
+
+# Fichiers système / temporaires
+*.swp
+.DS_Store
+__pycache__/
+
+# Éventuels fichiers de credentials ou données sensibles
+*.key
+*.pem
+secrets.*
+web/log.txt
